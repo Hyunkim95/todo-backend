@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 const Item = require('../model/Item');
 var router = express.Router();
 
-/* GET home page. */
+// Get all Items on localhost
 router.get('/', function(req, res) {
   Item.find()
   .then((items) =>{
@@ -11,6 +11,7 @@ router.get('/', function(req, res) {
   })
 });
 
+// Post an Item on localhost
 router.post('/', function(req,res) {
   let item = new Item()
   item.description = req.body.description
@@ -21,6 +22,7 @@ router.post('/', function(req,res) {
     })
 })
 
+// Delete an Item
 router.post('/:id', function(req,res) {
   Item.findOneAndRemove({_id: req.params.id})
     .then(()=>{
@@ -28,6 +30,7 @@ router.post('/:id', function(req,res) {
     })
 })
 
+// Get all items through API
 router.get('/api', function(req, res) {
   Item.find()
   .then((items) =>{
@@ -35,16 +38,18 @@ router.get('/api', function(req, res) {
   })
 });
 
-router.post('/api', function(req,res) {
+// Post items through API
+router.post('/api/item', function(req,res) {
   let item = new Item()
-  item.description = req.query.description
+  item.description = req.query.description;
   item.due_date = req.query.due_date
   item.save()
-    .then(()=>{
+    .then(() => {
       res.json('Successfully Created')
     })
 })
 
+// Delete items through API
 router.delete('/api/:id', function(req,res) {
   Item.findOneAndRemove({_id: req.params.id})
     .then(()=>{
