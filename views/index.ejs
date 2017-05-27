@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+    <ul>
+      <% items.forEach(item => { %>
+        <li><%= item.description %></li>
+        <form action=/<%= item._id%> method="post">
+          <input type="submit" value="Delete">
+        </form>
+      <%}) %>
+    </ul>
+
+    <form action="/" method="post">
+      Description: <input type="text" name="description"><br>
+      Due Date: <input type="date" name="due_date">
+      <input type="submit">
+    </form>
+
+  </body>
+</html>
