@@ -1,4 +1,3 @@
 # todo-backend
 
-This part of the application is the server side of the AI Calender Application, it is a node application which contains end points to extract to do lists as an API call. 
-This application is work in progress, and will be updated once it has been completed
+This project was the backend of a chatbot I created, it is a messenger bot that takes in text as input. Once text has been inputted, users can choose to generate a random input the user has put in. It was a tool for me to help learn new things 
